@@ -1,6 +1,4 @@
-/**!
- * code from https://github.com/LiikeJS/Liike/blob/master/src/ease.js
- */
+// https://github.com/LiikeJS/Liike/blob/master/src/ease.js
 const easeInBy = power => t => Math.pow(t, power);
 const easeOutBy = power => t => 1 - Math.abs(Math.pow(t - 1, power));
 const easeInOutBy = power => t => t < 0.5 ? easeInBy(power)(t * 2) / 2 : easeOutBy(power)(t * 2 - 1) / 2 + 0.5;
