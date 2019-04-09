@@ -2,7 +2,8 @@
   "name": "b-tween",
   "version": "0.1.1",
   "description": "A simple but powerful tweening engine for Javascript.",
-  "main": "index.js",
+  "main": "./dist/b-tween.cjs.js",
+  "module": "./dist/b-tween.es.js",
   "scripts": {
     "dev-cjs": "rollup -c -f cjs -o ./dist/b-tween.cjs.js -w",
     "dev-es": "rollup -c -w",
