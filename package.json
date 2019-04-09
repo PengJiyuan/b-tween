@@ -4,7 +4,10 @@
   "description": "A simple but powerful tweening engine for Javascript.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-cjs": "rollup -c -f cjs -o ./dist/b-tween.cjs.js -w",
+    "dev-es": "rollup -c -w",
+    "dev-umd": "rollup -c -f umd -o ./dist/b-tween.umd.js -n BTween -w",
+    "build": "rm -rf dist/* && rollup -c -o ./dist/b-tween.es.js && rollup -c -f cjs -o ./dist/b-tween.cjs.js && rollup -c -f umd -o ./dist/b-tween.umd.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/PengJiyuan/b-tween/issues"
   },
-  "homepage": "https://github.com/PengJiyuan/b-tween#readme"
+  "homepage": "https://github.com/PengJiyuan/b-tween#readme",
+  "devDependencies": {
+    "rollup": "^1.9.0",
+    "rollup-plugin-buble": "^0.19.6"
+  }
 }

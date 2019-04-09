@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>B-tween example</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      text-align: center;
+    }
+    .font {
+      font-size: 12px;
+    }
+    .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 400px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .wrapper > .inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .wrapper > .inner > .block {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #ef8376;
+      border-radius: 50%;
+      top: 100px;
+      left: 0;
+      z-index: 10;
+    }
+    .wrapper > .inner > .line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #5babf3;
+      top: 150px;
+      left: 0;
+      z-index: 2;
+    }
+    .wrapper > .btn-wrapper {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h1>b-tween</h1>
+  <p>A simple but powerful tweening engine for Javascript.</p>
+  <div class="wrapper">
+    <div class="btn-wrapper">
+      <span class="font">缓动方式：</span>
+      <select id="easing">
+        <option value="linear">linear</option>
+        <option value="quadIn">quadIn</option>
+        <option value="quadOut">quadOut</option>
+        <option value="quadInOut">quadInOut</option>
+        <option value="cubicIn">cubicIn</option>
+        <option value="cubicOut">cubicOut</option>
+        <option value="cubicInOut">cubicInOut</option>
+        <option value="quartIn">quartIn</option>
+        <option value="quartOut">quartOut</option>
+        <option value="quartInOut">quartInOut</option>
+        <option value="quintIn">quintIn</option>
+        <option value="quintOut">quintOut</option>
+        <option value="quintInOut">quintInOut</option>
+        <option value="sineIn">sineIn</option>
+        <option value="sineOut">sineOut</option>
+        <option value="sineInOut">sineInOut</option>
+        <option value="bounceIn">bounceIn</option>
+        <option value="bounceOut">bounceOut</option>
+        <option value="bounceInOut">bounceInOut</option>
+      </select>
+      <span class="font">缓动时间：</span>
+      <input id="duration" value="500" placeholder="缓动时间" />
+      <button id="start">开始</button>
+      <button id="reset">重置</button>
+    </div>
+    <div class="inner">
+      <div id="block" class="block"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+</body>
+<script src="../dist/b-tween.umd.js"></script>
+<script>
+  var block = document.getElementById('block');
+  var eleStart = document.getElementById('start');
+  var eleDuration = document.getElementById('duration');
+  var eleEasing = document.getElementById('easing');
+  var eleReset = document.getElementById('reset');
+  var duration = 500;
+  var easing = 'linear';
+  eleStart.addEventListener('click', animation);
+  eleEasing.addEventListener('change', function(event) {
+    easing = event.target.value;
+    block.style.left = 0;
+  });
+  eleDuration.addEventListener('change', function(event) {
+    duration = event.target.value;
+  });
+  eleReset.addEventListener('click', () => {
+    block.style.left = 0;
+  });
+  // 开启动画
+  function animation() {
+    var tween = new BTween({
+      from: {
+        left: 0
+      },
+      to: {
+        left: 700
+      },
+      duration: duration,
+      easing: easing,
+      onUpdate: function(keys) {
+        block.style.left = keys.left + 'px';
+      }
+    });
+    tween.start();
+  }
+</script>
+</html>
