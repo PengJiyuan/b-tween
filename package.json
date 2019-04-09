@@ -1,0 +1,26 @@
+{
+  "name": "b-tween",
+  "version": "0.0.1",
+  "description": "A simple but powerful tweening engine for Javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PengJiyuan/b-tween.git"
+  },
+  "keywords": [
+    "tween",
+    "animation",
+    "javascript",
+    "motion",
+    "transform"
+  ],
+  "author": "PengJiyuan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PengJiyuan/b-tween/issues"
+  },
+  "homepage": "https://github.com/PengJiyuan/b-tween#readme"
+}
