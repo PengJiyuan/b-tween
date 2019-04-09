@@ -39,8 +39,10 @@ const BTween = require('b-tween');
 
 #### Browser
 
+https://unpkg.com/b-tween/dist/b-tween.umd.js
+
 ```html
-<script src="b-tween.umd.js"></script>
+<script src="https://unpkg.com/b-tween/dist/b-tween.umd.js"></script>
 <script>
   const tween = new BTween({
     ...
