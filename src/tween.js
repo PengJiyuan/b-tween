@@ -81,4 +81,9 @@ export class Tween {
     };
     tick();
   }
+
+  stop() {
+    cancelAnimationFrame(this.timer);
+    this.timer = null;
+  }
 }
