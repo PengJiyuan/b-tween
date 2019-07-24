@@ -1,9 +1,9 @@
 const vendors = ['webkit', 'ms', 'moz', 'o']
 
-let raf = window.requestAnimationFrame
-let caf = window.cancelAnimationFrame
+let raf = window && window.requestAnimationFrame;
+let caf = window && window.cancelAnimationFrame;
 
-if (!raf || !caf) {
+if (window && (!raf || !caf)) {
   vendors.some(prefix => {
     raf = window[`${prefix}RequestAnimationFrame`]
     caf = window[`${prefix}CancelAnimationFrame`] || window[`${prefix}CancelRequestAnimationFrame`]
