@@ -1,5 +1,4 @@
 import * as easing from './easing';
-import './raf';
 
 export class Tween {
   constructor(settings) {
